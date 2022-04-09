@@ -1,0 +1,35 @@
+<div class="container-sm mt-4">
+  <h5 class="mb-2">Modify Student</h5>
+  <form [formGroup]="modifyStudentForm">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="fullName"
+        placeholder="Full Name"
+        formControlName="fullName"
+      />
+      <label for="fullName">Full Name</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="name@example.com"
+        formControlName="email"
+      />
+      <label for="email">Email address</label>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button
+        class="btn btn-primary btn-lg"
+        (click)="submit()"
+        [disabled]="!modifyStudentForm.valid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

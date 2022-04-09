@@ -1,0 +1,15 @@
+<ul class="nav nav-pills justify-content-end">
+  <li class="nav-item" *ngFor="let item of navBar">
+    <a
+      [ngClass]="{
+        'main-menu-item': true,
+        'nav-link': true,
+        active: item.active,
+        disabled: !item.page
+      }"
+      (click)="changeItemActive(item)"
+      aria-current="page"
+      >{{ item.title }}</a
+    >
+  </li>
+</ul>
