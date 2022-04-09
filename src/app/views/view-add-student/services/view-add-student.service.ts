@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { ApiRestService } from 'src/app/core/services/rest/api-rest.service';
-import { IntAddStudent } from '../schemas/view-add-student.interface';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { catchError, map } from "rxjs/operators";
+import { ApiRestService } from "src/app/core/services/rest/api-rest.service";
+import { IntAddStudent } from "../schemas/view-add-student.interface";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ViewAddStudentService {
   constructor(private apiRestService: ApiRestService) {}
@@ -15,17 +15,9 @@ export class ViewAddStudentService {
       map((data: any) => {
         return data;
       }),
-      catchError(() => {
-        throw this.getMock();
+      catchError((err) => {
+        throw new Error(err);
       })
     );
-  }
-
-  private getMock(): IntAddStudent {
-    return {
-      email: 'klevera@gmail',
-      full_name: 'klever',
-      course: 'a',
-    };
   }
 }
